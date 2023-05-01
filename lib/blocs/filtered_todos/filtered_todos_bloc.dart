@@ -56,6 +56,11 @@ class FilteredTodosBloc extends Bloc<FilteredTodosEvent, FilteredTodosState> {
             .where((Todo todo) => !todo.completed)
             .toList();
         break;
+      case Filter.completed:
+        _filteredTodos = todoListBloc.state.todos
+            .where((Todo todo) => todo.completed)
+            .toList();
+        break;
       case Filter.all:
       default:
         _filteredTodos = todoListBloc.state.todos;
